@@ -1,0 +1,26 @@
+.prioridad {
+  font-size: 0.9em;
+  line-height: 0.7;
+}
+.prioridad i {
+  display: block;
+  font-size: 0.8em;
+}
+
+.oi {
+  color: #ced4da;
+}
+
+.resaltada {
+  color: #007bff;
+}
+
+.fueralimites {
+  pointer-events: none;
+}
+
+.oi:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=prioridad.component.css.map */
