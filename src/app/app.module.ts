@@ -6,13 +6,15 @@ import {FormsModule} from '@angular/forms';
 import {PrioridadComponent} from './prioridad/prioridad.component';
 import {OrdenaTareasPipe} from './ordenaTareas.pipe';
 import { FiltroDonePipe } from './filtro-done.pipe';
+import { CallbackHellComponent } from './callback-hell/callback-hell.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrioridadComponent,
     OrdenaTareasPipe,
-    FiltroDonePipe
+    FiltroDonePipe,
+    CallbackHellComponent
   ],
   imports: [
     BrowserModule,

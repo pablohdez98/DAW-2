@@ -32,7 +32,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/open-iconic/font/css/open-iconic-bootstrap.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.js"]
           },
           "configurations": {
             "production": {
