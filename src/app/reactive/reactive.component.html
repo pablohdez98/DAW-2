@@ -1,0 +1,18 @@
+<input type="text" class="form-control" id="search" placeholder="Search...">
+
+<div class="py-5" *ngIf="items" >
+  <h1 class="text-center mb-5">Imágenes</h1>
+  <div class="row">
+    <div class="col-lg-3 mb-2 mb-lg-0 mb-5" *ngFor="let item of items">
+      <div class="hover hover-1 text-white rounded mb-5">
+        <a target="_blank" href="{{item.media.m}}">
+          <img src="{{item.media.m}}" alt="{{item.title}}">
+        <div class="hover-overlay"></div>
+        <div class="hover-1-content px-5 py-4">
+          <p class="hover-1-description font-weight-light mb-0">{{item.title | slice:0:10}}</p>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

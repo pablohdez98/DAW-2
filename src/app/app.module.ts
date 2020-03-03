@@ -7,6 +7,8 @@ import {PrioridadComponent} from './prioridad/prioridad.component';
 import {OrdenaTareasPipe} from './ordenaTareas.pipe';
 import { FiltroDonePipe } from './filtro-done.pipe';
 import { CallbackHellComponent } from './callback-hell/callback-hell.component';
+import { ReactiveComponent } from './reactive/reactive.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { CallbackHellComponent } from './callback-hell/callback-hell.component';
     PrioridadComponent,
     OrdenaTareasPipe,
     FiltroDonePipe,
-    CallbackHellComponent
+    CallbackHellComponent,
+    ReactiveComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

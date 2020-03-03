@@ -1,25 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
+import {TodoServiceService} from './todo-service.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
   title = "Lista de DAW's";
   model = {
     user: 'Daw',
-    items: [
-      {id: "aaaaabbbbb", action: "zestudiar daw", done: false, prioridad: 4},
-      {id: "bbbbbccccc", action: "ayudar a mami", done: false, prioridad: 3},
-      {id: "cccccddddd", action: "ver Netflix", done: true, prioridad: 8},
-      {id: "dddddeeeee", action: "recoger", done: false, prioridad: 2},
-    ]
+    items: []
   };
   mostrarTodas=true;
+  suscripcion:Subscription;
 
-  constructor() {
-
+  constructor(private todoService:TodoServiceService) {
+    //this.model.items = todoService.getItems();
+    this.suscripcion=todoService.getItems().subscribe((data:any)=>this.model.items=data);
   }
 
   TnIncompletas(){
@@ -61,5 +60,9 @@ export class AppComponent {
     } else {
       this.model.items = this.model.items.sort( (a, b) => (a.prioridad - b.prioridad));
     }
+  }
+
+  ngOnDestroy(): void {
+     this.suscripcion.unsubscribe();
   }
 }
