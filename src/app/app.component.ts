@@ -33,18 +33,22 @@ export class AppComponent implements OnDestroy{
 
   addItem(tarea){
     let nuevoId=Math.random().toString(36).substr(2,10);
-    this.model.items.push({id: nuevoId, action: tarea, done: false, prioridad: 2});
+    //this.model.items.push({id: nuevoId, action: tarea, done: false, prioridad: 2});
+    this.todoService.addItem({id: nuevoId, action: tarea, done: false, prioridad: 4});
   }
 
   deleteItem(id: string) {
-    this.model.items = this.model.items.filter( item => {
+    /*this.model.items = this.model.items.filter( item => {
       return item.id != id;
-    })
+    })*/
+    let i= this.model.items.findIndex((item:any)=>item.id==id, id);
+    this.todoService.removeItem(this.model.items[i].key);
   }
 
   nuevaPrioridad($event: any,id) {
     let i= this.model.items.findIndex((item:any)=>item.id==id, id);
     this.model.items[i].prioridad=$event;
+    this.todoService.update(this.model.items[i]);
   }
 
   ordenaTareas(ascendente: boolean) {
@@ -67,5 +71,10 @@ export class AppComponent implements OnDestroy{
 
   ngOnDestroy(): void {
      this.suscripcion.unsubscribe();
+  }
+
+  tDone(item: any) {
+    item.done=!item.done;
+    this.todoService.update(item);
   }
 }

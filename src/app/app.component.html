@@ -38,7 +38,7 @@
       <tr class="row" *ngFor=" let i=index; let item of model.items |filtroDone: !mostrarTodas">
         <td class="col">{{item.action}}</td>
         <td class="col text-center"> {{item.done ? "Si":"No"}}</td>
-        <td class="col text-center"><input type="checkbox" [(ngModel)]="item.done"></td>
+        <td class="col-2 text-center"><input type="checkbox" [(ngModel)]="item.done" (click)="tDone(item)"></td>
         <td class="col text-center">
           <app-prioridad [prioridad]="item.prioridad"
                   (nuevaPrioridad)="nuevaPrioridad($event,item.id)"
